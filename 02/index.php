@@ -26,9 +26,43 @@ o programa deve seguir as restrições abaixo:
     ];
     //texto unidade validas
     $unidadesValidas = implode(', ',array_keys($unidades));
-
+    do{
     //solicta a unidade base para o usuario
-    $unidadeBase = readline('Digite a unidade base('.$unidadesValidas.'):');
+    $unidadeBase = readline('Digite a unidade base('.$unidadesValidas.') : ');
+    //mensagem de erro
+    if(!isset($unidades[$unidadeBase])){
+        echo 'unidade inválida\n\n';
+    }
+    }while(!isset($unidades[$unidadeBase]));
+
+    do{
+        //solicta o valor da unidade para o usuario
+        $valorBase = readline('Digite o valor base : ');
+        //mensagem de erro
+        if(!is_numeric($valorBase)){
+            echo 'Valor  inválido\n\n';
+        }
+        }while(!is_numeric($valorBase));
+
+    //valor em milimetros
+    $valorMilimetro = $valorBase * $unidades[$unidadeBase];
+
+    echo '\n Resultados: \n';
+
+    //imprime as unidades do sistema
+    foreach($unidades as $unidades => $divisor){
+        //ignora a impressão da unidade base
+        if($unidade == $unidadeBase) continue;
+        echo ' > ' . ($valorMilimetro/$divisor). ''.$unidade.'';
+    }
+    
+
+    
+
+    
+
+
+
 ?>
 </body>
 </html> 
