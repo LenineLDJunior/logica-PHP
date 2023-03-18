@@ -53,15 +53,9 @@ o programa deve seguir as restrições abaixo:
     foreach($unidades as $unidades => $divisor){
         //ignora a impressão da unidade base
         if($unidade == $unidadeBase) continue;
+        //imprime o valor das unidades
         echo ' > ' . ($valorMilimetro/$divisor). ''.$unidade.'';
     }
-    
-
-    
-
-    
-
-
 
 ?>
 </body>
